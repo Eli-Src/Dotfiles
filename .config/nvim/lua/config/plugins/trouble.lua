@@ -1,30 +1,30 @@
 return {
-    "folke/trouble.nvim",
-    opts = {
-        icons = {
-            indent = {
-                middle = " ",
-                last = " ",
-                top = " ",
-                ws = "│  ",
-            },
-        },
-        modes = {
-            diagnostics = {
-                groups = {
-                    { "filename", format = "{basename:Title} {count}" },
-                },
-            },
-        },
-    },
-    cmd = "Trouble",
-    keys = {
-        {
-            "<leader>xx",
-            "<cmd>Trouble diagnostics toggle<cr>",
-            desc = "Diagnostics (Trouble)",
-        },
-    },
+    -- "folke/trouble.nvim",
+    -- opts = {
+    --     icons = {
+    --         indent = {
+    --             middle = " ",
+    --             last = " ",
+    --             top = " ",
+    --             ws = "│  ",
+    --         },
+    --     },
+    --     modes = {
+    --         diagnostics = {
+    --             groups = {
+    --                 { "filename", format = "{basename:Title} {count}" },
+    --             },
+    --         },
+    --     },
+    -- },
+    -- cmd = "Trouble",
+    -- keys = {
+    --     {
+    --         "<leader>xx",
+    --         "<cmd>Trouble diagnostics toggle<cr>",
+    --         desc = "Diagnostics (Trouble)",
+    --     },
+    -- },
 }
 
         -- trouble.setup({
