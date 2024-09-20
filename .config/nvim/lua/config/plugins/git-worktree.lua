@@ -1,5 +1,5 @@
 return {
-    "ThePrimgeaen/git-worktree.nvim",
+    "ThePrimeagen/git-worktree.nvim",
     dependencies = {
         "nvim-telescope/telescope.nvim",
         "nvim-lua/plenary.nvim",
