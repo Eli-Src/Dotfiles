@@ -23,8 +23,13 @@ vim.keymap.set("n", "<leader>j", "<C-w>j")
 vim.keymap.set("n", "<leader>k", "<C-w>k")
 vim.keymap.set("n", "<leader>l", "<C-w>l")
 
--- vim.keymap.set(
---     "n",
---     "<C-e>",
---     "oif err != nil {<CR>}<Esc>Oreturn err<Esc>"
--- )
+vim.keymap.set("n", "<Leader>J" , ":resize -5<CR>", { silent = true })
+vim.keymap.set("n", "<Leader>K", ":resize +5<CR>", { silent = true })
+vim.keymap.set("n", "<Leader>H", ":vertical resize +5<CR>", { silent = true })
+vim.keymap.set("n", "<Leader>L", ":vertical resize -5<CR>", { silent = true })
+
+-- Java
+-- getter
+vim.keymap.set("n", "<Leader>@g", '"gyy[m%O<Esc>"gpdwipublic <Esc>ww"gy$~biget<Esc>$r(a) {}<Esc>i<CR><Esc>Oreturn this.<Esc>"gp')
+-- setter
+vim.keymap.set("n", "<Leader>@s", '2w"gy$[m%O<CR>public void set<Esc>"gp2b3l"gcw<Esc>lx~$r("gp3b3l"gyw$a <Esc>"gpb~$a) {}<Esc>i<CR><Esc>Othis.<Esc>"gpb~$a = <Esc>"gpb~$a;<Esc>')

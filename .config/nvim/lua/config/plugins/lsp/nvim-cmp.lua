@@ -1,34 +1,35 @@
 return {
     {
         "hrsh7th/nvim-cmp",
-        event = { "InsertEnter" },
+        lazy = false,
+        priority = 100,
         dependencies = {
+            "hrsh7th/cmp-nvim-lsp",
             "hrsh7th/cmp-buffer",
             "hrsh7th/cmp-path",
             "hrsh7th/cmp-cmdline",
-            -- "SirVer/ultisnips",
-            -- "quangnguyen30192/cmp-nvim-ultisnips",
-            "honza/vim-snippets",
-            "L3MON4D3/LuaSnip",
+            { "L3MON4D3/LuaSnip", build = "make install_jsregexp" },
             "saadparwaiz1/cmp_luasnip",
-            -- "rafamadriz/friendly-snippets",
+            "onsails/lspkind.nvim",
         },
         config = function()
             local cmp = require("cmp")
             local cmp_select = { behavior = cmp.SelectBehavior.Select }
 
-            -- require("luasnip.loaders.from_vscode").lazy_load()
+            require("luasnip.loaders.from_vscode").lazy_load()
 
             cmp.setup({
+                performance = {
+                    max_view_entries = 10
+                },
                 snippet = {
                     expand = function(args)
                         require("luasnip").lsp_expand(args.body)
-                        -- vim.fn["UltiSnips#Anon"](args.body)
                     end,
                 },
                 mapping = cmp.mapping.preset.insert({
-                    ['<C-m>'] = cmp.mapping.scroll_docs(-4),
-                    ['<C-n>'] = cmp.mapping.scroll_docs(4),
+                    ["<C-m>"] = cmp.mapping.scroll_docs(-4),
+                    ["<C-n>"] = cmp.mapping.scroll_docs(4),
                     ["<C-k>"] = cmp.mapping.select_prev_item(cmp_select),
                     ["<C-j>"] = cmp.mapping.select_next_item(cmp_select),
                     ["<C-l>"] = cmp.mapping.confirm({ select = true }),
@@ -38,7 +39,6 @@ return {
                     { name = "path" },
                     { name = "nvim_lsp" },
                     { name = "luasnip" },
-                    -- { name = 'ultisnips' },
 
                 }, {
                     { name = "buffer" },

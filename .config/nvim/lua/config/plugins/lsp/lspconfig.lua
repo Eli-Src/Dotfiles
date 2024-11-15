@@ -27,12 +27,8 @@ return {
 
         require("mason-lspconfig").setup({
             ensure_installed = {
-                "lua_ls",
                 "pyright",
                 "clangd",
-                "gopls",
-                "html", "cssls",
-                "tsserver", "tailwindcss"
             },
             handlers = {
                 -- default setup
@@ -86,21 +82,21 @@ return {
                     })
                 end,
 
-                -- tsserver = function()
-                --     lspconfig.tsserver.setup({
-                --         on_attach = on_attach,
-                --         filetypes = { "typescript", "typescriptreact", "typescript.tsx" },
-                --         cmd = { "typescript-language-server", "--stdio" }
-                --     })
-                -- end,
-                --
-                -- tailwindcss = function()
-                --     lspconfig.tailwindcss.setup({
-                --         on_attach = on_attach,
-                --         capabilities = capabilities,
-                --         filetypes = { "typescript", "typescriptreact", "typescript.tsx" },
-                --     })
-                -- end,
+                ts_ls = function()
+                    lspconfig.ts_ls.setup({
+                        on_attach = on_attach,
+                        filetypes = { "typescript", "typescriptreact", "typescript.tsx" },
+                        cmd = { "typescript-language-server", "--stdio" }
+                    })
+                end,
+
+                tailwindcss = function()
+                    lspconfig.tailwindcss.setup({
+                        on_attach = on_attach,
+                        capabilities = capabilities,
+                        filetypes = { "typescript", "typescriptreact", "typescript.tsx" },
+                    })
+                end,
             }
         })
     end,

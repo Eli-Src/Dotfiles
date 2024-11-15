@@ -7,7 +7,7 @@ return {
     config = function()
         local worktree = require("git-worktree")
         local job = require("plenary.job")
-        worktree.setup()
+        local telescope = require("telescope")
 
         local function is_nrdp()
             return not not (string.find(vim.fn.getcwd(), vim.env.NRDP, 1, true))
@@ -15,9 +15,11 @@ return {
 
         worktree.on_tree_change(function(op, metadata)
             if op == worktree.Operations.Switch then
-                print("Switched from " .. metadata.prev_path .. " to " .. metadata.path)
+                print(" ")
             end
+        end)
 
+        worktree.on_tree_change(function(op, metadata)
             if op == "create" and is_nrdp() then
                 job:new({
                     "git", "submodule", "update"
@@ -25,6 +27,10 @@ return {
             end
         end)
 
-        require("telescope").load_extension("git_worktree")
+        worktree.setup()
+        telescope.load_extension("git_worktree")
+
+        vim.keymap.set("n", "<leader>gw", telescope.extensions.git_worktree.git_worktrees, { silent = true })
+        vim.keymap.set("n", "<leader>gaw", telescope.extensions.git_worktree.create_git_worktree, { silent = true })
     end
 }
