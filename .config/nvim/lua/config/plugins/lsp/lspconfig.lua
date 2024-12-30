@@ -35,6 +35,7 @@ return {
                 function(server_name)
                     lspconfig[server_name].setup({
                         capabilities = capabilities,
+                        on_attach = on_attach
                     })
                 end,
 

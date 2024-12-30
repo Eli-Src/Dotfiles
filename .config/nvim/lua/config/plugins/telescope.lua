@@ -3,6 +3,7 @@ return {
     branch = "0.1.x",
     dependencies = {
         "nvim-lua/plenary.nvim",
+        { "nvim-telescope/telescope-live-grep-args.nvim" , version = "^1.0.0" },
         { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
     },
     config = function()
@@ -28,9 +29,10 @@ return {
             }
         })
         telescope.load_extension("fzf");
+        telescope.load_extension("live_grep_args")
 
         vim.keymap.set("n", "<leader>pf", builtin.find_files)
-        vim.keymap.set("n", "<leader>ps", builtin.live_grep)
+        vim.keymap.set("n", "<leader>ps", ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>")
         vim.keymap.set("n", "<leader>pw", function()
             local word = vim.fn.expand("<cword>")
             builtin.grep_string({ search = word })

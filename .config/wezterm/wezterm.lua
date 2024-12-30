@@ -5,8 +5,9 @@ local color_scheme = wezterm.color.get_builtin_schemes()[color_scheme_name]
 color_scheme.background = "#232326"
 
 return {
-    font_size = 23,
+    font_size = 19,
     font = wezterm.font("JetBrainsMono Nerd Font Mono"),
+    -- font = wezterm.font("Cascadia Mono NF"),
     harfbuzz_features = { "calt=0", "clig=0", "liga=0" }, -- disbale ligeratures
     scrollback_lines = 10000,
     audible_bell = "Disabled",

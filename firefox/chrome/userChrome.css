@@ -15,11 +15,8 @@ findbar {
   border-top: none !important;
 }
 
-html:not([privatebrowsingmode="temporary"]) #navigator-toolbox {
-  padding-top: 3px;
-  padding-bottom: 4px;
+#TabsToolbar {
   background: var(--custom-bg) !important;
-  border-bottom: 0 !important;
 }
 
 menubar, toolbar, nav-bar, #TabsToolbar > *{
@@ -28,11 +25,9 @@ menubar, toolbar, nav-bar, #TabsToolbar > *{
 
 #nav-bar {
   background: var(--custom-bg) !important;
-
   display: flex;
   justify-content: center;
   align-items: center;
-  /* width: calc(100% - 20px); */
 }
 
 /* Ensure icons are centered within the nav-bar */
@@ -41,6 +36,13 @@ menubar, toolbar, nav-bar, #TabsToolbar > *{
   justify-content: center;
   align-items: center;
   width: 100%;
+}
+
+html:not([privatebrowsingmode="temporary"]) #navigator-toolbox {
+  padding-top: 3px;
+  padding-bottom: 4px;
+  background: var(--custom-bg) !important;
+  border-bottom: 0 !important;
 }
 
 html:not([privatebrowsingmode="temporary"]) #sidebar-box {
@@ -57,17 +59,19 @@ html:not([privatebrowsingmode="temporary"]) #TabsToolbar {
   visibility: collapse !important;
 }
 
-#TabsToolbar {
-  background: var(--custom-bg) !important;
-}
+/* html:not([privatebrowsingmode="temporary"]) .titlebar-buttonbox-container { */
+/*   position: absolute; */
+/*   right: 0; */
+/*   top: 9px; */
+/*   display: flex; */
+/*   justify-content: center; */
+/*   width: 110px !important; */
+/* } */
 
 html:not([privatebrowsingmode="temporary"]) .titlebar-buttonbox-container {
-  position: absolute;
-  right: 0;
-  top: 9px;
-  display: flex;
-  justify-content: center;
-  width: 110px !important;
+    position: static !important;
+    display: block !important;
+    width: auto !important;
 }
 
 .titlebar-button {

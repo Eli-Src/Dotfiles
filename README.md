@@ -13,3 +13,6 @@
         - unzip
     3. foot:
         - JetBrainsNF Mono
+
+### Nice commands
+    - find ./folder -type f -exec cat {} + | pbcopy
