@@ -20,6 +20,10 @@
   home.packages = [
   ];
 
+  home.sessionVariables = {
+    EDITOR = "nvim";
+  };
+
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
   home.file = {
@@ -28,14 +32,10 @@
     # # symlink to the Nix store copy.
     ".zshrc".source = "~/Dotfiles/zshrc/.zshrc";
 
-    ".config/nix-darwin".source = "~/Dotfiles/nix-darwin";
-    ".config/wezterm".source = "~/Dotfiles/wezterm";
-    ".config/nvim".source = "~/Dotfiles/nvim";
-    ".config/tmux".source = "~/Dotfiles/tmux";
-  };
-
-  home.sessionVariables = {
-    # EDITOR = "emacs";
+    ".config/nix-darwin".source = "../nix-darwin";
+    ".config/wezterm".source = "../wezterm";
+    ".config/nvim".source = "../nvim";
+    ".config/tmux".source = "../tmux";
   };
 
   # Let Home Manager install and manage itself.
